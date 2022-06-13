@@ -85,6 +85,11 @@ import { SensorType } from './sensor-type/sensor-type.model';
     }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
+      native: true,
+      ssl: true,
+      dialectOptions: {
+        ssl: true,
+      },
       host: process.env.POSTGRES_HOST || 'ec2-52-30-67-143.eu-west-1.compute.amazonaws.com',
       port: Number(process.env.POSTGRESS_PORT) || 5432,
       username: process.env.POSTGRES_USER || 'ogvzbhxwkcnwnk',
