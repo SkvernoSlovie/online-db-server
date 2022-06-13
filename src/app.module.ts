@@ -85,11 +85,13 @@ import { SensorType } from './sensor-type/sensor-type.model';
     }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: process.env.POSTGRES_HOST,
-      port: Number(process.env.POSTGRESS_PORT),
-      username:  process.env.POSTGRES_USER,
-      password:  process.env.POSTGRESS_PASSWORD,
-      database: process.env.POSTGRES_DB,
+      host: process.env.POSTGRES_HOST || 'ec2-52-30-67-143.eu-west-1.compute.amazonaws.com',
+      port: Number(process.env.POSTGRESS_PORT) || 5432,
+      username: process.env.POSTGRES_USER || 'ogvzbhxwkcnwnk',
+      password:
+        process.env.POSTGRESS_PASSWORD ||
+        'e027babd98b983ceff7dc2193bb7c42936902b4dd2c2d0ef0d283a84d4fa53ac',
+      database: process.env.POSTGRES_DB || 'd1vaivlcf54an2',
       models: [
         User,
         Role,
